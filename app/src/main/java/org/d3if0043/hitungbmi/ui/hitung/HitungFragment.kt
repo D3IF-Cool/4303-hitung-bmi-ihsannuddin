@@ -22,8 +22,6 @@ class HitungFragment : Fragment() {
         val factory = HitungViewModelFactory(db.dao)
         ViewModelProvider(this, factory).get(HitungViewModel::class.java)
     }
-
-
     private lateinit var binding: FragmentHitungBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -33,9 +31,9 @@ class HitungFragment : Fragment() {
                 layoutInflater, container, false)
         binding.button.setOnClickListener { hitungBmi() }
         binding.saranButton.setOnClickListener { viewModel.mulaiNavigasi() }
+        binding.shareButton.setOnClickListener { shareData() }
 
         setHasOptionsMenu(true)
-        binding.shareButton.setOnClickListener { shareData() }
         return binding.root
     }
 
@@ -48,7 +46,6 @@ class HitungFragment : Fragment() {
             viewModel.selesaiNavigasi()
         }
         )
-
     }
 
     private fun hitungBmi() {
