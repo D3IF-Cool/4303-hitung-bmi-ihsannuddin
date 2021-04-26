@@ -35,13 +35,15 @@ class HitungViewModel(private val db: BmiDao) : ViewModel() {
             }
         }
     }
+
     fun mulaiNavigasi() {
         navigasi.value = hasilBmi.value?.kategori
-    }
-    fun selesaiNavigasi() {
-        navigasi.value = null
-    }
-    fun getHasilBmi() : LiveData<HasilBmi?> = hasilBmi
-    fun getNavigasi() : LiveData<KategoriBmi?> = navigasi
+        fun selesaiNavigasi() {
+            navigasi.value = null
+        }
 
+        fun getHasilBmi(): LiveData<HasilBmi?> = hasilBmi
+        fun getNavigasi(): LiveData<KategoriBmi?> = navigasi
+
+    }
 }
